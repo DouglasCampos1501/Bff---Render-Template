@@ -2,6 +2,9 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+contacts = [{'id': 1, 'name': 'John Doe',  'phone': '555-555-5555'},
+            {'id': 2, 'name': 'João Ponez',  'phone': '4444-444-444'}]
+
 @app.route('/hello/<name>')
 def hello(name):
     return render_template('index.html',name=name)
@@ -14,6 +17,11 @@ def say_hello():
 def say_hello_post():
     name = request.form['text']
     return hello(name)
+
+
+@app.route('/contactsTemplate.html')
+def contact_template():
+    return render_template('contactsTemplate.html' ,contacts=contacts)
 
 @app.route('/dict')
 def dict():
