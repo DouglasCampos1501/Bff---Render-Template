@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block head %}
+
+List "FOR"
+
+{% endblock %}
+
+{% block body %}
+{% for item in list %}
+    <p>Name: {{ item.name }} </p>>
+    <p>Price: {{ item.price }} </p>>
+{% endfor %}
+{% endblock %}
